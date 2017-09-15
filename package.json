@@ -2,7 +2,7 @@
   "name": "object-path-plus",
   "version": "1.0.0",
   "description": "Object path traversal with concatenation",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": "https://github.com/mixmaxhq/object-path-plus",
   "author": "Trey Tacon <trey@mixmax.com> (https://mixmax.com)",
   "license": "MIT",
