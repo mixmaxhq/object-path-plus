@@ -60,5 +60,9 @@ validate('a.b + hello world') === false;
 ```
 
 
+## Changelog
+
+* 1.0.0 Initial release
+
 [object-path's documentation]: https://github.com/mariocasciaro/object-path#usage
 [object-path]: https://github.com/mariocasciaro/object-path
