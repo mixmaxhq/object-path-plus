@@ -1,0 +1,36 @@
+{
+  "name": "object-path-plus",
+  "version": "0.0.0",
+  "description": "Object path traversal with concatenation",
+  "main": "index.js",
+  "repository": "https://github.com/mixmaxhq/object-path-plus",
+  "author": "Trey Tacon <trey@mixmax.com> (https://mixmax.com)",
+  "license": "MIT",
+  "dependencies": {
+    "object-path": "^0.11.4"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "ava-spec": "^1.1.0",
+    "eslint": "^4.6.1",
+    "eslint-config-mixmax": "^0.6.0",
+    "nyc": "^11.2.1"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "report": "nyc ava",
+    "test": "ava"
+  },
+  "ava": {
+    "timeout": "60s",
+    "files": [
+      "spec/**/*Spec.js"
+    ]
+  },
+  "nyc": {
+    "exclude": [
+      "index.js",
+      "spec"
+    ]
+  }
+}
