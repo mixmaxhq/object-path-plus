@@ -62,10 +62,13 @@ describe('validate', (it) => {
   it('should validate concatenated object-paths with string literals', (t) => {
     t.true(validate('a.b + " " + c.d'));
     t.true(validate('a.b + \' \' + c.d'));
+    t.true(validate('a.b + \' \' + c.d + c.1.2'));
+    t.true(validate('a.b + \'"\''));
   });
 
   it('should return false on invalid object-paths', (t) => {
     t.false(validate('a.b + hello world'));
     t.false(validate('a.b + hello + \''));
+    t.false(validate('a.b + hello +'));
   });
 });
