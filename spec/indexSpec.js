@@ -1,6 +1,6 @@
 const { describe } = require('ava-spec');
 
-const { resolve, validate } = require('../src');
+const { resolve, validate } = require('..');
 
 
 describe('resolve', (it) => {
