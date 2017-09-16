@@ -1,6 +1,6 @@
 {
   "name": "object-path-plus",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Object path traversal with concatenation",
   "main": "dist/index.js",
   "repository": "https://github.com/mixmaxhq/object-path-plus",
@@ -19,7 +19,7 @@
     "eslint-config-mixmax": "^0.6.0",
     "nyc": "^11.2.1"
   },
-   "files": [
+  "files": [
     "index.js",
     "dist"
   ],
