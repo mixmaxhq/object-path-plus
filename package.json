@@ -20,7 +20,6 @@
     "nyc": "^11.2.1"
   },
   "files": [
-    "index.js",
     "dist"
   ],
   "scripts": {
