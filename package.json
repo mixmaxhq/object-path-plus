@@ -24,6 +24,7 @@
   ],
   "scripts": {
     "build": "rm -rf dist && babel src -d dist",
+    "watch": "babel --watch src/ -d dist",
     "lint": "eslint .",
     "report": "nyc ava",
     "test": "ava",
