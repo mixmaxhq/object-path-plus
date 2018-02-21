@@ -1,7 +1,18 @@
 const objectPath = require('object-path');
 
 // Our valid path validator.
-const VALIDATOR = /^((("[^"]*")|('[^']*')|([\w\.]+))\s*\+\s)*(("[^"]*")|('[^']*')|([\w\.]+))$/;
+const VALIDATOR_TOKEN = '(' +
+    '("[^"]*")' + // String literal of double quotes
+    '|(\'[^\']*\')' + // String literal of single quotes
+    '|([\\w\\.\\[\\]]+)' + // String of any character, brackets or a dot
+  ')';
+
+const VALIDATOR = new RegExp(
+  '^' +
+    `(${VALIDATOR_TOKEN}\\s*\\+\\s)*` + // Optional token followed by ' + '
+    VALIDATOR_TOKEN + // Ends with a regular token
+  '$'
+);
 
 /**
  * `validate` determines if the given path is valid.
@@ -24,6 +35,18 @@ function isString(str) {
 }
 
 const STRING_LITERAL = /^['"].+['"]$/;
+const ARRAY_LOOKUP = /\[(.+)\]/;
+
+/**
+ * Determines if we believe the provided value to be a dynamic array lookup, e.g. `arr[index]`
+ *
+ * @param {*} str The value to check.
+ * @returns {boolean} True if value is a string has a dynamic array lookup.
+ *   false otherwise.
+ */
+function isArrayLookup(str) {
+  return ARRAY_LOOKUP.test(str);
+}
 
 /**
  * Determines if we believe the provided value to be a "string literal".
@@ -62,8 +85,15 @@ function resolve(obj, path) {
   const pieces = path.split('+').map((piece) => piece.trim());
   for (const piece of pieces) {
     let resolved;
+
     if (isStringLiteral(piece)) {
       resolved = trimQuotes(piece);
+    } else if (isArrayLookup(piece)) {
+      // Rewrite dynamic array lookup form `[b]` into the `.1` format supported by object-path.
+      const [, arrIndex] = piece.match(ARRAY_LOOKUP);
+      const numericalIndex = objectPath.get(obj, arrIndex);
+      const rewrittenPiece = piece.replace(ARRAY_LOOKUP, `.${numericalIndex}`);
+      resolved = objectPath.get(obj, rewrittenPiece);
     } else {
       resolved = objectPath.get(obj, piece);
     }
