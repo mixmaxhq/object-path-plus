@@ -71,13 +71,5 @@ validate('a.b + c.d') === true;
 validate('a.b + hello world') === false;
 ```
 
-
-## Changelog
-
-* 1.1.1 Fixed `package.json` reference to non-existant file.
-* 1.1.0 Make ES5 compatible.
-* 1.0.1 Fix bad `package.json` entrypoint.
-* 1.0.0 Initial release
-
 [object-path's documentation]: https://github.com/mariocasciaro/object-path#usage
 [object-path]: https://github.com/mariocasciaro/object-path
