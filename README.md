@@ -44,6 +44,18 @@ resolve({
   c: { d: 'bar' },
   e: { f: [ 0, 1 ] }
 }, 'a.b + " " + c.d + " " + e.f.1') === 'foo bar 1';
+
+```
+
+## Dynamic array lookups
+
+You can also use a property to index within an array. Just use the `[]` syntax.
+
+```
+resolve({
+  firstkey: {index: 1},
+  arr: [{key: 1}, {key: 2}]
+}, 'arr[firstkey.index].key') === 2
 ```
 
 ## Validating object-path-plus paths

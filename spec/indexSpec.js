@@ -48,6 +48,17 @@ describe('resolve', (it) => {
       '15\u00f8C': { '3\u0111': 'bar' }
     }, 'a.b + " " + 15\u00f8C.3\u0111'), 'foo bar');
   });
+
+  it('should resolve dynamic array index lookups', (t) => {
+    t.is(resolve({
+      firstkey: {index: 1},
+      arr: [{key: 1}, {key: 2}]
+    }, 'arr[firstkey.index].key'), 2);
+  });
+
+  it('should ignore brackets in a string', (t) => {
+    t.is(resolve({}, '"[not an array]"'), '[not an array]');
+  });
 });
 
 describe('validate', (it) => {
@@ -70,5 +81,9 @@ describe('validate', (it) => {
     t.false(validate('a.b + hello world'));
     t.false(validate('a.b + hello + \''));
     t.false(validate('a.b + hello +'));
+  });
+
+  it('should validate dynamic array lookups', (t) => {
+    t.true(validate('a[1].another'));
   });
 });
