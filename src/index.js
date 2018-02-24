@@ -108,9 +108,23 @@ function resolve(obj, path) {
   return val;
 }
 
+/**
+ * Sets the key to the value. The key supports dot syntax (see object-path documentation).
+ *
+ * @param {Object} obj The object to pull values from.
+ * @param {string} path The path to resolve via the given object.
+ * @returns {*} The resolved value.
+ */
+function set(obj, key, value) {
+  // TODO: For now, just delegate to object-path. However, we could later add more complex
+  // rewriting functionality later such as:
+  //  'arr[]' = value // Pushes on an array
 
+  return objectPath.set(obj, key, value);
+}
 
 module.exports = {
   resolve,
-  validate
+  validate,
+  set
 };

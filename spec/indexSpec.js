@@ -1,6 +1,6 @@
 const { describe } = require('ava-spec');
 
-const { resolve, validate } = require('..');
+const { resolve, validate, set } = require('..');
 
 
 describe('resolve', (it) => {
@@ -85,5 +85,23 @@ describe('validate', (it) => {
 
   it('should validate dynamic array lookups', (t) => {
     t.true(validate('a[1].another'));
+  });
+});
+
+describe('set', (it) => {
+  it('should set a key', (t) => {
+    const obj = {};
+
+    set(obj, 'a.b.0', 'value');
+
+    t.deepEqual(obj, {a: {b: ['value']}});
+  });
+
+  it('should set a key', (t) => {
+    const obj = {};
+
+    set(obj, 'a.b.0', 'value');
+
+    t.deepEqual(obj, {a: {b: ['value']}});
   });
 });
