@@ -96,12 +96,4 @@ describe('set', (it) => {
 
     t.deepEqual(obj, {a: {b: ['value']}});
   });
-
-  it('should set a key', (t) => {
-    const obj = {};
-
-    set(obj, 'a.b.0', 'value');
-
-    t.deepEqual(obj, {a: {b: ['value']}});
-  });
-});
+]});
