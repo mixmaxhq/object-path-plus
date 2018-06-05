@@ -6,6 +6,12 @@ Currently, it only supports the `.` delimited path format of `object-path`.
 
 ## Installation
 ```sh
+npm install object-path-plus
+```
+
+or
+
+```sh
 yarn add object-path-plus
 ```
 
