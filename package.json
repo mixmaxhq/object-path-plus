@@ -1,6 +1,6 @@
 {
   "name": "object-path-plus",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Object path traversal with concatenation",
   "main": "dist/index.js",
   "repository": "https://github.com/mixmaxhq/object-path-plus",
