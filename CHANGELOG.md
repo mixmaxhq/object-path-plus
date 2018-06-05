@@ -1,5 +1,7 @@
 ## Changelog
 
+* 1.3.1 deyarn
+
 * 1.3.0 Support set() function for setting keys
 
 * 1.2.0 Add support for array lookups using a dynamic property, e.g. arr[index]
