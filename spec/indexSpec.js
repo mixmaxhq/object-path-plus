@@ -96,4 +96,4 @@ describe('set', (it) => {
 
     t.deepEqual(obj, {a: {b: ['value']}});
   });
-]});
+});

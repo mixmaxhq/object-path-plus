@@ -28,7 +28,8 @@
     "lint": "eslint .",
     "report": "nyc ava",
     "test": "ava",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "npm run build",
+    "ci": "npm run lint && npm run build && npm run test"
   },
   "ava": {
     "timeout": "60s",
